@@ -55,7 +55,6 @@ def process_transactions(transactions):
                     usd_amount = round(amount * sol_price)
 
                 data = {"txHash": trans['txHash'], "type": transaction_type, "token_name": token_name,"sol_amount": amount, "usd_amount": usd_amount}
-                print(data)
                 all_transactions.append(data)
 
             elif jupiter_program_address in programs_involved or raydium_program_address in programs_involved:
@@ -80,10 +79,9 @@ def process_transactions(transactions):
                     usd_amount = round(amount * sol_price)
 
                 data = {"txHash": trans['txHash'], "type": transaction_type, "token_name": token_name,"sol_amount": amount, "usd_amount": usd_amount}
-                print(data)
                 all_transactions.append(data)
             else:
-                print("Unknown transaction check ", trans['txHash'])
+                pass
 
         except Exception as e:
             print(traceback.format_exc())
