@@ -109,11 +109,3 @@ def calculate_percentage_increase(initial_price, final_price):
     return rounded_percentage_increase
 
 
-
-def swap_token(token_address, amount, slippage, transaction_type, gas_fee):
-    url = 'http://localhost:5000/swap'
-    payload = {"token_address": token_address, "amount": amount, "type": transaction_type, "slippage":slippage, "gas_fee": gas_fee}
-    headers = {'Content-Type': 'application/json'}
-    response = requests.post(url, json=payload, headers=headers)
-    print(response.status_code)
-    print(response.json())

@@ -151,9 +151,12 @@ def calculate_profit_or_loss_and_win_rate(transactions):
     text_result += f"Win Rate: {win_rate:.2f}%"
     return text_result
 
+@app.get("/")
+def home():
+    return "this is the home page"
 
 
-@app.get("/<tracking_address>")
+@app.get("/analyze/<tracking_address>")
 def get_analysis(tracking_address):
     transactions = get_address_transactions(tracking_address)
     Local_Cache.set("tracking_address", tracking_address)
@@ -170,3 +173,7 @@ def get_analysis(tracking_address):
             all_transactions.remove(transaction)
 
     return calculate_profit_or_loss_and_win_rate(all_transactions)
+
+
+if __name__ == '__main__':
+    app.run()
