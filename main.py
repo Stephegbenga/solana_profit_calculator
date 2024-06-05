@@ -153,7 +153,7 @@ def calculate_profit_or_loss_and_win_rate(transactions):
 
 
 
-@app.get("/<tracking_address")
+@app.get("/<tracking_address>")
 def get_analysis(tracking_address):
     transactions = get_address_transactions(tracking_address)
     Local_Cache.set("tracking_address", tracking_address)
