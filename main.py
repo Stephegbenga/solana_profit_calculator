@@ -162,7 +162,7 @@ def get_analysis(tracking_address):
     Local_Cache.set("tracking_address", tracking_address)
     batch_size = 100
     batches = [transactions[i:i + batch_size] for i in range(0, len(transactions), batch_size)]
-    responses = parallel_functions(batches, process_transactions)
+    responses = parallel_functions(batches, process_transactions, max_workers=2)
     all_transactions = []
 
     for response in responses:
